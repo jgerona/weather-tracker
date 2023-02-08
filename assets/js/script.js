@@ -10,7 +10,7 @@ var day6 = document.querySelector("#day6");
 var historyList = []; //STILL NEED TO STORE TO LOCAL STORAGE BUT .PUSH IS HAVING PROBLEMS
 var historyUl = document.querySelector("#history-list");
 
-
+// initializes stored history to screen, creates history
 function init() {
     var storedHistory = JSON.parse(localStorage.getItem("storedHistory"));
     if (storedHistory !== null) {
@@ -20,11 +20,11 @@ function init() {
         createHistory(historyList[i].city, historyList[i].lat, historyList[i].lon);
     }
 }
-
+//stores history to local storage
 function storeHistory() {
     localStorage.setItem("storedHistory", JSON.stringify(historyList))
 }
-
+//creates history into button
 function createHistory(city, lat, lon) {
     var historyEl = document.createElement('li');
     var historybtnEl = document.createElement('button');
@@ -41,7 +41,7 @@ function createHistory(city, lat, lon) {
     historyEl.appendChild(historybtnEl);
     historyUl.appendChild(historyEl);
 }
-
+//when search button is pressed, reads city then finds coordinates for finding weather
 searchBtnEl.addEventListener("click", function (event) {
     var city = tArea.value;
     if (tArea !== null) {
@@ -66,7 +66,7 @@ searchBtnEl.addEventListener("click", function (event) {
             });
     }
 });
-
+//finds weather based on lat and long
 function findWeather(city, lat, lon) {
     var queryUrl = "https://api.openweathermap.org/data/2.5/forecast?limit=5&units=imperial&lat=" + lat + "&lon=" + lon + "&appid=" + APIkey;
     fetch(queryUrl)
@@ -75,8 +75,6 @@ function findWeather(city, lat, lon) {
         })
         .then(function (data) {
             var thisDate = data.list[0].dt_txt.split(" ");
-            
-            // var icon = "http://openweathermap.org/img/wn/"+ data.list[0].weather[0].icon+".png"
             day1.innerHTML = "<h1>" + city.toUpperCase() + " " + thisDate[0] + " <img src= \"" + "http://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + ".png" + " \" /> </h1>" + "Temp: " + data.list[0].main.temp + String.fromCharCode(176) + "F <br> <br> Wind: " + data.list[0].wind.speed + " MPH <br> <br> Humidity: " + data.list[0].main.humidity + "%";
             document.querySelector("#h2").innerHTML = "<h2> 5-Day Forecast: </h2>"
             day2.innerHTML = data.list[8].dt_txt.split(" ")[0] + "<br> <img src= \"" + "http://openweathermap.org/img/wn/" + data.list[8].weather[0].icon + ".png" + " \" /> </h1>" + "<br>Temp: " + data.list[8].main.temp + String.fromCharCode(176) + "F <br> <br> Wind: " + data.list[8].wind.speed + " MPH <br> <br> Humidity: " + data.list[8].main.humidity + "%";
