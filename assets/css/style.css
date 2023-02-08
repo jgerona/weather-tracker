@@ -1,0 +1,64 @@
+body {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: rgba(61, 130, 194, 0.993);
+    width: 100vw;
+    object-fit: contain;
+}
+
+main {
+    display: flex;
+}
+.search-section {
+    width: 30%;
+    text-align: left;
+    text-align: center;
+}
+.weather-content {
+    margin: 20px;
+    width: 50%;
+    justify-content: center;
+}
+textarea {
+    width: 80%;
+    height: 20px;
+    padding: 12px 20px;
+    font-size: 17px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+.search-button {
+    width: 80%;
+    text-align: center;
+    border-radius: 4px;
+}
+#day-content {
+    outline: 1px solid black;
+    /* background-color: #cccccc77; */
+}
+#day2, #day3, #day4, #day5, #day6 {
+    background-color: gray;
+    margin: 10px 10px 10px 10px;
+    width: 20%;
+    border-radius: 4px;
+}
+.search-button:hover {    
+    background-color: rgba(70, 87, 238, 0.2);
+    cursor: pointer;
+
+}
+#history-list {
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 17px;
+    background-color: #ccc;
+}
+.week-content {
+    display: flex;
+
+}

@@ -5,14 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Tracker</title>
+
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <section class="search-section">
+            <h1>Search for a City</h1>
+            <div class="search-bar">
+                <textarea placeholder="Enter a City" id="tArea"></textarea>
+                <button id="sButton" class="search-button">search</button>
+                <hr>
+                <ul id="history-list"><h3>History</h3> <br> </ul>
+            </div>
+        </section> 
+        <div class="weather-content">
+            <div id="day-content"></div>
+            <div id="h2"></div>
+            <div class="week-content">
+                <div id="day2"></div>
+                <div id="day3"></div>
+                <div id="day4"></div>
+                <div id="day5"></div>
+                <div id="day6"></div>
+            </div>
+        </div>
+
+    </main>
 
 
-
-
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
