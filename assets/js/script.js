@@ -12,7 +12,8 @@ var historyUl = document.querySelector("#history-list");
 
 // initializes stored history to screen, creates history
 function init() {
-    var storedHistory = JSON.parse(localStorage.getItem("storedHistory"));
+    var storedHistory = JSON.parse(localStorage.getItem("storedHistory"))||[];
+    
     if (storedHistory !== null) {
         historyList = storedHistory;
     }
@@ -58,10 +59,9 @@ searchBtnEl.addEventListener("click", function (event) {
                     lat: lat,
                     lon: lon
                 };
-                // historyList.push(next);
+                historyList.push(next);
                 storeHistory();
                 createHistory(city, lat, lon);
-                //history.push(city,lat,lon); // need to create a history in local storage, they need to all be buttons
                 findWeather(city, lat, lon);
             });
     }
@@ -83,10 +83,6 @@ function findWeather(city, lat, lon) {
             day4.innerHTML = data.list[24].dt_txt.split(" ")[0] + "<br> <img src= \"" + "http://openweathermap.org/img/wn/" + data.list[24].weather[0].icon + ".png" + " \" /> </h1>" + "<br>Temp: " + data.list[24].main.temp + String.fromCharCode(176) + "F <br> <br> Wind: " + data.list[24].wind.speed + " MPH <br> <br> Humidity: " + data.list[24].main.humidity + "%";
             day5.innerHTML = data.list[32].dt_txt.split(" ")[0] + "<br> <img src= \"" + "http://openweathermap.org/img/wn/" + data.list[32].weather[0].icon + ".png" + " \" /> </h1>" + "<br>Temp: " + data.list[32].main.temp + String.fromCharCode(176) + "F <br> <br> Wind: " + data.list[32].wind.speed + " MPH <br> <br> Humidity: " + data.list[32].main.humidity + "%";
             day6.innerHTML = data.list[39].dt_txt.split(" ")[0] + "<br> <img src= \"" + "http://openweathermap.org/img/wn/" + data.list[39].weather[0].icon + ".png" + " \" /> </h1>" + "<br>Temp: " + data.list[39].main.temp + String.fromCharCode(176) + "F <br> <br> Wind: " + data.list[39].wind.speed + " MPH <br> <br> Humidity: " + data.list[39].main.humidity + "%";
-
-
-
-
         })
 }
 init();
