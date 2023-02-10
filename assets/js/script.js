@@ -46,7 +46,7 @@ function createHistory(city, lat, lon) {
 searchBtnEl.addEventListener("click", function (event) {
     var city = tArea.value;
     if (tArea !== null) {
-        var geoUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + APIkey;
+        var geoUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + APIkey;
         fetch(geoUrl)
             .then(function (response) {
                 return response.json();
